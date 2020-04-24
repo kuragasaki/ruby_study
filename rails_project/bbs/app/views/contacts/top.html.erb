@@ -1,0 +1,19 @@
+<div class="contact">
+  <div class="errors">
+    <% @errors.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  </div>
+  <%= form_tag("/contacts/send") do %>
+    <div class="text-wrap">
+      <input type="text" name="name" placeholder="名前" value="<%= params[:name] %>"/>
+    </div>
+    <div class="text-wrap">
+      <input type="text" name="mail" placeholder="メールアドレス" value="<%= params[:mail] %>"/>
+    </div>
+    <div class="textarea-wrap">
+      <textarea name="message" placeholder="お問い合わせ内容"><%= params[:message] %></textarea>
+    </div>
+    <input type="submit" value="送信" />
+  <% end %>
+</div>
